@@ -7,14 +7,14 @@
 }
 body{
   font-family: 'Poppins', sans-serif;
-  background: #bdbaba;
+  background: #f6f7fa;
 }
 .background {
   background-color: antiquewhite;
   padding: 50px 0; 
 }
 .container{
-  max-width: 90%;
+  max-width: 95%;
   margin: auto;
 }
 .d_flex{

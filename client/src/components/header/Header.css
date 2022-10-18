@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 /*________________head______________________*/
 .head{
     background-color: rgb(180, 154, 6);
-    padding: 10px 0;
+    padding: 8px 0;
     color: #fff;    
 }
 .head i {   
@@ -9,7 +10,36 @@
     font-size: 25px;
 }
 .head label{
-    font-size: 20px;
+    font-size: 15px;
     margin-right: 20px;
 }
 /*________________head______________________*/
+
+/*________________Serch______________________*/
+.serch{
+    background-color: rgb(180, 154, 6);
+    padding: 20px 0;
+    color: #fff;    
+}
+.serch .logo{
+    width: auto;
+    height: auto;
+    font-size: 30px;
+    font-family: 'PT Serif', serif; 
+    font-weight: 600;
+    margin-left: 10px;
+    
+    
+}
+.logo_txt{
+    font-family: 'PT Serif', serif; 
+    font-weight: auto;
+    color: darkblue;    
+}
+.j{
+    font-size: 50px;    
+    font-weight: 800;
+    color: rgb(104, 3, 3);    
+}
+
+/*________________Serch______________________*/
