@@ -11,7 +11,7 @@ const Head = () => {
                     <i className='fa fa-envelope'></i>
                     <label htmlFor=''>lahirurandima@gmail.com</label>
                 </div>
-                <div className="right row RTex">
+                <div className="right row RText">
                     <label>Theme FAQ'S</label>
                     <label>Need Help</label>
                     <span>Sri Lanka</span>

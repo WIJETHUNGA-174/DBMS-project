@@ -15,7 +15,7 @@ const Navbar = () => {
               </h4>
             </div>
             <div className='navlink'>
-              <ui className={MobileMenu ? "nav-links-MobileMenu" : "link f_flex capitalize" }  onClick = {() => setMobileMenu(false)}>
+              <ul className={MobileMenu ? "nav-links-MobileMenu" : "link f_flex capitalize" }  onClick = {() => setMobileMenu(false)}>
                 <li>
                   <Link to ='/'>home</Link>
                 </li>
@@ -34,11 +34,7 @@ const Navbar = () => {
                 <li>
                   <Link to ='/contact'>contact</Link>
                 </li>
-              </ui>
-              <button className='toggle' onClick={() => setMobileMenu(!MobileMenu)}>
-                {MobileMenu ? <i className='fas fa-times close home-btn'></i> : 
-                <i className='fas fa-bars open'></i>}
-              </button>
+              </ul>
             </div>
           </div>
         </header>
