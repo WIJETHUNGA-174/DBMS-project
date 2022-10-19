@@ -57,5 +57,5 @@ input , button{
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 .boxShadow{
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
 }

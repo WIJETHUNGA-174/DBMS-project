@@ -1,5 +1,7 @@
 import React,{ useState } from 'react'
 import { Link } from 'react-router-dom'
+import { TableCellsIcon } from '@heroicons/react/24/solid'
+
 
 
 const Navbar = () => {
@@ -9,7 +11,7 @@ const Navbar = () => {
         <header className="header">
           <div className='container d_flex'>
             <div className='categories d_flex'>
-              <span className='fa-solid fa-border-all'></span>
+              <TableCellsIcon className='cat' />              
               <h4>
                 Categories <i className='fa fa-chevron-down'></i>
               </h4>

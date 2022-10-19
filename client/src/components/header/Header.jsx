@@ -10,8 +10,7 @@ const Header = () => {
     <>
         <Head />
         <Search />
-        <Navbar />
-        
+        <Navbar />        
     </>
   )
 }
