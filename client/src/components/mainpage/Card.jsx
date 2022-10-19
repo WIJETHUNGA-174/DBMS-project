@@ -16,10 +16,10 @@ const Card = () => {
             {card.map((value,index) =>{
                 return(
                     <div className='box f_flex' key={index}>                        
-                        <span>{value.pname}</span>
-                        <span>{value.unitprice}</span>
-                        <span>{value.availibleQty}</span>
-                        <span>{value.pid}</span>
+                        <h1 className='pname'>{value.pname}</h1>
+                        <span className='unitprice'>{value.unitprice}</span>
+                        <span className='qty'>{value.availibleQty}</span>
+                        <span className='pid'>{value.pid}</span>
                         
                     </div>
                 )
