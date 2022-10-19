@@ -8,25 +8,40 @@ const Card = () => {
                 availibleQty:"availibleQty",
                 pid:"1" 
 
+            },
+            { 
+                pname: 'Pname',
+                unitprice:"unitprice",
+                availibleQty:"availibleQty",
+                pid:"1" 
+
+            },
+            { 
+                pname: 'Pname',
+                unitprice:"unitprice",
+                availibleQty:"availibleQty",
+                pid:"1" 
+
             }
         ]
   return (
-    <div>
+    <>
         <div className='sellcard'>
             {card.map((value,index) =>{
                 return(
                     <div className='box f_flex' key={index}>                        
-                        <h1 className='pname'>{value.pname}</h1>
+                        <span className='pname'>{value.pname}</span>
                         <span className='unitprice'>{value.unitprice}</span>
                         <span className='qty'>{value.availibleQty}</span>
                         <span className='pid'>{value.pid}</span>
-                        
+                        <input type="text"placeholder="...QTY..." />
+                        <i class="fa-solid fa-plus">Add cart</i>                      
                     </div>
                 )
             })}
         </div>
       
-    </div>
+    </>
   )
 }
 
