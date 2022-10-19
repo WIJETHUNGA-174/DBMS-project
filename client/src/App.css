@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 *{
   padding: 0;
   margin: 0;
@@ -7,7 +7,7 @@
 }
 body{
   font-family: 'Poppins', sans-serif;
-  background: #f6f7fa;
+  background: #ffffff;
 }
 .background {
   background-color: antiquewhite;
@@ -57,5 +57,40 @@ input , button{
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 .boxShadow{
-  box-shadow: rgb(43 52 69 / 10%) 0px 4px 16px;
+  box-shadow: rgba(69, 45, 43, 0.1) 0px 4px 16px;
+}
+/*__________________category______________________*/
+.contentWidth{
+width: 77%;
+}
+.category {
+  width: 20%;
+  box-shadow: rgba(177, 185, 201, 0.1) 0px 4px 16px;
+  height: 400px;
+  padding: 15px 0;
+  border-radius: 5px;
+  margin-top: 5px;
+  display: inline;
+}
+.category img{
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  object-fit: contain;
+  
+}
+.category span{
+  margin:auto;
+  font-size: 17px;
+  font-family: 'PT Serif', serif; 
+  text-transform: capitalize;
+}
+.category .box{
+  height: 40px;
+  transition: 0.5s;
+  padding: 0 20px;  
+} 
+.category .box:hover{
+  background-color: rgb(248, 232, 232);
+  cursor: pointer;
 }
