@@ -23,6 +23,23 @@ const Card = () => {
                 pid:"1" 
 
             }
+            ,
+            { 
+                pname: 'Pname',
+                unitprice:"unitprice",
+                availibleQty:"availibleQty",
+                pid:"1" 
+
+                
+            }
+            ,
+            { 
+                pname: 'Pname',
+                unitprice:"unitprice",
+                availibleQty:"availibleQty",
+                pid:"1" 
+
+            }
         ]
   return (
     <>
@@ -35,7 +52,7 @@ const Card = () => {
                         <span className='qty'>{value.availibleQty}</span>
                         <span className='pid'>{value.pid}</span>
                         <input type="text"placeholder="...QTY..." />
-                        <i class="fa-solid fa-plus">Add cart</i>                      
+                        <i className="fa-solid fa-plus">Add cart</i>                      
                     </div>
                 )
             })}

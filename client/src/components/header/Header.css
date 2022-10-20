@@ -60,7 +60,7 @@
     padding: 10px;
 }
 ::placeholder{
-    font-size: 15px;
+    font-size: 20px;
 }
 .search-box span{
     width: 20%;
@@ -136,8 +136,8 @@ header ul li a:hover{
     display: none;
 }
 .search.active {
-    height: 12vh;
-    position: fixed;
+    height: 12vh; 
+
     top: 0;
     z-index: 1000;
     width: 100%;
@@ -149,8 +149,7 @@ header ul li a:hover{
     margin-left: 50px;
     width: 25%;
     padding: 5px;
-    border: 1px solid #ccc;
-    
+    border: 1px solid #ccc;    
 }
 
 

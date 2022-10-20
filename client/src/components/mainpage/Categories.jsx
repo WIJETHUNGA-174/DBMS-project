@@ -26,6 +26,38 @@ const Categories = () => {
         { 
             cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
             cateName:"Shapt Bar"   
+        },
+        { 
+            cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
+            cateName:"Shapt Bar"   
+        },
+        { 
+            cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
+            cateName:"QT Bar"   
+        },
+        { 
+            cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
+            cateName:"Box Bar"   
+        },
+        { 
+            cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
+            cateName:"Pipe"   
+        },
+        { 
+            cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
+            cateName:"Plane Bar"   
+        },
+        { 
+            cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
+            cateName:"Flat Bar"   
+        },
+        { 
+            cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
+            cateName:"Shapt Bar"   
+        },
+        { 
+            cateImg: 'https://i.ibb.co/7vDLJFb/burger.png',
+            cateName:"Shapt Bar"   
         }
     ]  
   return (

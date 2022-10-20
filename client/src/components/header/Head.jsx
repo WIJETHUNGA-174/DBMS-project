@@ -1,6 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Head = () => {
+    const logout = () => {
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
+        window.location.reload();
+    }
   return (
     <>
         <section className="head">
@@ -16,7 +22,9 @@ const Head = () => {
                     <label>Need Help</label>
                     <span>Sri Lanka</span>
                     <i className='fa fa-angle-down'></i>
-                    <i className='fa fa-user'></i>
+                    <Link to='/admin'>
+                        <i className='fa fa-user' onClick={logout}></i>
+                    </Link>                    
                 </div>
             </div>
         </section>
