@@ -175,11 +175,11 @@ width: 77%;
   color: #333;
   font-size: 1.2rem;
 	margin: 0 auto;
-  padding: 1.5rem 2rem;
-  border-radius: 0.2rem;
+  padding: 0.6rem 2rem;
+  border-radius: 1rem;
   background-color: rgb(255, 255, 255);
   border: none;
-  width: 90%;
+  width: 100%;
   display: block;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
@@ -188,7 +188,7 @@ width: 77%;
 }
 
 .form {
-  width: 400px;
+  width: 400px;  
 }
 
 .title {
@@ -202,17 +202,17 @@ width: 77%;
 .button {
   border-radius: 4px;
   border: none;
-  background-color: white;
-  color: black;
+  background-color: rgb(196, 199, 247);
+  color: #000;
   text-align: center;
   text-transform: uppercase;
   font-size: 22px;
-  padding: 20px;
+  padding: 8px;
   width: 200px;
   transition: all 0.4s;
   cursor: pointer;
   margin: 5px;
-  width: 90%;
+  width: 100%;
 }
 .button span {
   cursor: pointer;
