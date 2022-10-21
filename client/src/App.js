@@ -9,8 +9,7 @@ function App() {
   if (!localStorage.getItem('email')) 
   return (
     <>
-    <Router>
-    
+    <Router>    
       <Switch>
         <Route exact path="/" component={LoginForm} />
         <Route exact path="/signup" component={signupForm} />
