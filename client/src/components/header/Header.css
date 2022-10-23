@@ -92,7 +92,7 @@
 
 .categories{
     padding: 0 30px;
-    background-color: rgb(217, 217, 243);
+    background-color: rgb(235, 241, 224);
     border-radius: 5px;
     height: 6vh; 
         
@@ -144,12 +144,6 @@ header ul li a:hover{
     background-color: #fff;
     box-shadow: -1px 11px 24px -11px rgba(0,0,0,0.2);
     transition: 0.5s;
-}
-.card input{
-    margin-left: 50px;
-    width: 25%;
-    padding: 5px;
-    border: 1px solid #ccc;    
 }
 
 

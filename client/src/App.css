@@ -95,61 +95,7 @@ width: 77%;
   background-color: rgb(248, 232, 232);
   cursor: pointer;
 }
-.sellcard{
-  width: 1000px;
-  height: 600px;
-  margin-top: 10px;
-  
-  padding: 20px;
-  align-items: center;
 
-
-  margin-bottom: 10px;
-  display:inline;
-}
-.sellcard .box{
-  height: 50px;
-  transition: 0.5s;
-  display: flex;
-  background-color: rgb(224, 240, 235);
-  box-shadow: rgba(177, 185, 201, 0.1) 0px 4px 16px;
-;
-   
-}
-.sellcard .box:hover{
-  background-color: rgb(248, 232, 232);
-  cursor: pointer;
-}
-.sellcard .pname{
-  margin-top: 10px;
-  font-size: 20px;
-  font-family: 'PT Serif', serif; 
-  text-transform: capitalize;
-  justify-content: center;
-  margin-left: 50px;
-}
-.sellcard .unitprice{
-  margin-top: 10px;
-  font-size: 20px;
-  font-family: 'PT Serif', serif; 
-  text-transform: capitalize;
-  margin-left: 50px;
-}
-.sellcard .qty{
-  margin-top: 10px;
-  font-size: 20px;
-  font-family: 'PT Serif', serif; 
-  text-transform: capitalize;
-  margin-left: 50px;
-}
-.sellcard .pid{
-  margin-top: 10px;
-  font-size: 20px;
-  font-family: 'PT Serif', serif; 
-  text-transform: capitalize;
-  margin-left: 50px;
-  margin-right: 50px;
-}
 
 /* FORM STYLES */
 *,
@@ -173,7 +119,7 @@ width: 77%;
 
 .input {
   color: #333;
-  font-size: 1.2rem;
+  font-size: 1rem;
 	margin: 0 auto;
   padding: 0.6rem 2rem;
   border-radius: 1rem;
@@ -234,4 +180,71 @@ width: 77%;
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.sellcard {
+  width: 1000px;
+  background: #fff;
+  
+}
+.card{
+  align-items: center;  
+  display: flex;
+  border: 1px solid rgb(219, 219, 219);
+  margin-top: 10px;
+  margin-right: 10px;
+  background:  rgb(235, 241, 224);
+  border-radius: 10px;
+  padding: 2px;
+  margin-left: 10px;
+}
+  
+.card div{
+  color: #333;
+  font-size: 1rem;  
+  border-radius: 0rem;
+  
+  width: 100%;
+  display: block;
+  border-bottom: 0.1rem solid transparent;
+  transition: all 0.3s;
+  outline: none;
+  
+}
+.card .pname{
+  width: 20%;
+}
+.card .pimage{
+  width: 15%;
+}
+.card.qty{
+  width: 10%;
+}
+.Qinput{
+  color: #333;
+  font-size: 1.2rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 0.5rem;
+  background-color: rgb(202, 202, 202);
+  border: none;
+  border-bottom: 0.1rem solid transparent;
+  transition: all 0.3s;
+  outline: none;
+  margin-left: 10px;
+  width: 80%;
+}
+.card .button{
+  border-radius: 4px;
+  border: none;
+  background-color: rgb(209, 209, 209);
+  color: #000;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding: 5px;
+  width: 50px;
+  transition: all 0.4s;
+  cursor: pointer;
+  margin: 5px;
+  width: 90%;  
 }

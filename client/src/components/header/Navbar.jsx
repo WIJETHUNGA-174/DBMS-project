@@ -35,7 +35,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link to ='/contact'>contact</Link>
-                </li>
+                </li>               
                 
               </ul>
             </div>

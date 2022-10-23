@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Head = () => {
     const logout = () => {
-        localStorage.removeItem('username');
+        localStorage.removeItem('email');
         localStorage.removeItem('password');
         window.location.reload();
     }
