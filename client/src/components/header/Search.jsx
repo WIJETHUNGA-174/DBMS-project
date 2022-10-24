@@ -10,15 +10,13 @@ const Search = () => {
   })
   const [numberOfCartItems, setNumberOfCartItems] = useState('');
   
-
   useEffect(() => {
-    const email = "jhon@gmail.com"
-    axios.post('http://localhost:4000/cart/items',{email:email}
-    ).then((response) => {
-      setNumberOfCartItems(response.data[0].len);
-      console.log(response.data[0].NumberOfItems);
+    const email = localStorage.getItem('email');
+    axios.post('http://localhost:4000/cart/items',{email:email}).then((response) => {
+        setNumberOfCartItems(response.data[0].length);
+        console.log(response.data[0].length);
     })
-}, []);
+}, [numberOfCartItems]);
   return (
     <>
   

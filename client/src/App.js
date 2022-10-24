@@ -4,6 +4,7 @@ import {  BrowserRouter as Router,  Switch,Route} from "react-router-dom";
 import Pages from './screens/Pages';
 import LoginForm from './components/header/loginform.jsx';
 import signupForm from './components/header/signupForm.jsx';
+import Cart from './components/mainpage/cart'
 
 
 
@@ -26,9 +27,9 @@ function App() {
       <Router>
         <Header /> 
         <Switch>
-          <Route path='/' exact>
-            <Pages />
-          </Route>        
+          <Route exact path='/' component={Pages}/>
+          <Route exact path='/cart' component={Cart}/>
+                 
         </Switch>      
       </Router>     
     </div>
