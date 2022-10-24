@@ -180,7 +180,7 @@ app.delete("./cart",(req,res)=>{
 /**
  * Number Of Item in cart
  */
-app.get("/cart/items",(req,res)=>{
+app.post("/cart/items",(req,res)=>{
     console.log("hello");
     const email = req.body.email;
     connection.query("SELECT COUNT(*) as len FROM cart WHERE UserID = (SELECT UserID FROM USER WHERE email = ?)",

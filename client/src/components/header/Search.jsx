@@ -13,10 +13,10 @@ const Search = () => {
 
   useEffect(() => {
     const email = "jhon@gmail.com"
-    axios.get('http://localhost:4000/cart/items',{email:email}
+    axios.post('http://localhost:4000/cart/items',{email:email}
     ).then((response) => {
-      setNumberOfCartItems(response.data);
-      console.log(response.data);
+      setNumberOfCartItems(response.data[0].len);
+      console.log(response.data[0].NumberOfItems);
     })
 }, []);
   return (
@@ -41,7 +41,7 @@ const Search = () => {
                   <i className='fa fa-shopping-bag icon-circle'></i>
                 </Link>
                   <span>
-                  {numberOfCartItems.length}                   
+                  {numberOfCartItems}                   
                   </span>                
               </div>
             </div>
