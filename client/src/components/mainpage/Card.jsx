@@ -5,7 +5,7 @@ import axios from 'axios';
 const Card = () => {
     
     const [products, setProducts] = useState([]);
-    const [QTY, setQty] = useState('');
+    const [QTY, setQty] = useState([0]);
     useEffect(() => {
         axios.get('http://localhost:4000/product').then((response) => {
             setProducts(response.data);
@@ -13,10 +13,12 @@ const Card = () => {
         })
     }, []);
 
-    const addCart = (id) => {
+    const addCart = (ProductID) => {
+        
         const email = localStorage.getItem('email');
-        axios.post('http://localhost:4000/addcart',{email:email,productid:id,QTY:QTY}).then((response) => {
+        axios.put('http://localhost:4000/addcart',{email:email,ProductID:ProductID,QTY:QTY}).then((response) => {
             console.log(response.data);
+            window.location.reload();
         })
     }
     
@@ -40,9 +42,13 @@ const Card = () => {
                         <div><span className='pname'>{value.ProductName}</span> </div> 
                         <div><span classname='brand'>{value.BrandName}</span></div>                         
                         <div><span className='unitprice'>{value.UnitPrice}</span></div> 
-                        <div><span className='qty'>{value.QTY}</span></div> 
-                        <div ><input className='Qinput' type="text"placeholder="...QTY..." /></div> 
-                        <div><button className='button' onClick={() => addCart(value.ProductID)}><span>ADD CART</span></button></div>  
+                        <div><span className='qty'>{value.StockQty}</span></div> 
+                        <div ><input className='Qinput' type="text" placeholder="...QTY..."
+                        onChange={(event)=>{
+                            setQty(event.target.value);
+                          }}
+                         /></div> 
+                        <div><button className='button'onClick={()=>{addCart(value.ProductID)}}><span>ADD CART</span></button></div>  
                     </div>
                 )
             })}
@@ -52,3 +58,4 @@ const Card = () => {
 }
 
 export default Card
+

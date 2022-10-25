@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const connection = require('./db');
 const bodyParser = require('body-parser');
+const { useParams } = require('react-router-dom');
 
 
 app.use(cors());
@@ -71,9 +72,9 @@ app.get("/category",(req,res)=>{
 
 /*To get all cart item that preticular user have
 */
-app.post("/cart",(req,res) =>{
+app.post("/cart/show",(req,res) =>{
   const email = req.body.email;
-  connection.query("SELECT Product.ProductName , Cart.QTY , cart.Amount FROM USER join cart on user.UserID = cart.UserID join Product on cart.ProductID = product.ProductID where email = ?",
+  connection.query("SELECT Product.ProductID, Product.ProductName ,Brand.BrandName, cart.QTY ,cart.Amount FROM cart JOIN Product ON cart.ProductID = product.ProductID JOIN brand ON product.B_ID = Brand.BrandID join user on cart.UserID = user.UserID WHERE user.email = ?",
   [email],(err,result)=>{
       if(err){
           res.send({err:err});
@@ -104,30 +105,35 @@ app.get("/category1",(req,res)=>{
 /**
  * to update the cart item when user add or remove item from cart
  */
-app.post("/cart",(req,res)=>{
+app.post("/cart/update",(req,res)=>{
   const email = req.body.email;
   const ProductID = req.body.ProductID;
-  const QTY = req.body.QTY;
-  const Amount = req.body.Amount;
-  connection.query("UPDATE cart SET QTY = ?, Amount = ? WHERE UserID = (SELECT UserID FROM USER WHERE email = 'jhon@gmail.com') AND ProductID = ?)",
-  [QTY,Amount,email,ProductID],(err,result)=>{
+  const QTY = req.body.updatedQty;
+  console.log(email);
+    console.log(ProductID);
+    console.log(QTY);
+  connection.query("UPDATE cart SET QTY = ?, Amount = (select product.UnitPrice from product where product.ProductID=?)*? WHERE UserID = (select user.UserID from user where user.email=?) AND ProductID = ?",
+    [QTY,ProductID,QTY,email,ProductID],(err,result)=>{
       if(err){
           res.send({err:err});
       }
       else{
           res.send(result);
-          console.log(result);
       }
   });
-});
+}
+);
 
 /**
  * to add new item to cart
  */
-app.post("/addcart",(req,res)=>{
+app.put("/addcart",(req,res)=>{
     const email = req.body.email;
     const ProductID = req.body.ProductID;
+    console.log(email);
+    console.log(ProductID);
     const QTY = req.body.QTY;
+    console.log(QTY);
 
     connection.query("INSERT INTO cart (UserID,ProductID,QTY,Amount) VALUES ((SELECT UserID FROM USER WHERE email = ?),?,?,(SELECT UnitPrice FROM Product WHERE ProductID = ?)*?)",
     [email,ProductID,QTY,ProductID,QTY],(err,result)=>{
@@ -144,9 +150,11 @@ app.post("/addcart",(req,res)=>{
 /**
  * to delete item from cart
  */
-app.delete("/cart",(req,res)=>{
+app.post("/cart/deleteone",(req,res)=>{
   const email = req.body.email;
   const ProductID = req.body.ProductID;
+  console.log(email);
+    console.log(ProductID);
   connection.query("DELETE FROM cart WHERE UserID = (SELECT UserID FROM USER WHERE email = ?) AND ProductID = ?",
   [email,ProductID],(err,result)=>{
       if(err){
@@ -162,7 +170,7 @@ app.delete("/cart",(req,res)=>{
 /**
  * delete all item from cart when user checkout
  */
-app.delete("/cart",(req,res)=>{
+app.delete("/cart/deleteall",(req,res)=>{
   const email = req.body.email;
   console.log(email);
   connection.query("DELETE FROM cart WHERE UserID = (SELECT UserID FROM USER WHERE email = ?)",
@@ -206,4 +214,46 @@ app.post("/cart/items/",(req,res)=>{
         });
     }
     );
+
+    /**
+     * add to invoice
+     */
+    app.post("/order/invoice",(req,res)=>{
+        const email = req.body.email;
+        const Amount = req.body.total;
+        const Address = req.body.Address;
+        connection.query("INSERT INTO invoice (UserID,InvoiceDate,BilAmount,Address) VALUES ((SELECT UserID FROM USER WHERE email = ?),?,?,?)",
+        [email,new Date(),Amount,Address],(err,result)=>{
+            if(err){
+                res.send({err:err});
+            }
+            else{
+                res.send(result);
+            }
+        });
+    }
+    );
+    /**
+     * get sum of all item amount in cart
+     * 
+     */
+    
+    app.post("/cart/total",(req,res)=>{
+        const email = req.body.email;
+        connection.query("SELECT SUM(Amount) as total FROM cart WHERE UserID = (SELECT UserID FROM USER WHERE email = ?)",
+        [email],(err,result)=>{
+            if(err){
+                res.send({err:err});
+            }
+            else{
+                res.send(result);
+                
+            }
+        });
+    }
+    );
+
+
+    
+  
     
