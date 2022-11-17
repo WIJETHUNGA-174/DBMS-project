@@ -60,7 +60,8 @@ app.post("/signup/",(req,res)=>{
 });
 
 app.get("/category",(req,res)=>{ 
-  connection.query("SELECT CategoryName FROM category",(err,result)=>{
+    console.log("category");
+  connection.query("SELECT CategoryName,CategoryID FROM category",(err,result)=>{
       if(err){
           res.send({err:err});
       }
@@ -90,6 +91,7 @@ app.post("/cart/show",(req,res) =>{
  */
 app.get("/category1",(req,res)=>{
   const CategoryName = req.body.CategoryName;
+  console.log("arff")
   connection.query("SELECT Product.ProductName, Brand.BrandName  FROM category join product on category.CategoryID = product.CatagoryID join Brand on Brand.BrandID= product.B_ID where CategoryName = ?",
   [CategoryName],(err,result)=>{
       if(err){
@@ -170,7 +172,7 @@ app.post("/cart/deleteone",(req,res)=>{
 /**
  * delete all item from cart when user checkout
  */
-app.delete("/cart/deleteall",(req,res)=>{
+app.post("/cart/deleteall",(req,res)=>{
   const email = req.body.email;
   console.log(email);
   connection.query("DELETE FROM cart WHERE UserID = (SELECT UserID FROM USER WHERE email = ?)",
@@ -253,7 +255,56 @@ app.post("/cart/items/",(req,res)=>{
     }
     );
 
+    
+    
+    app.post("/category/serchByCategory",(req,res)=>{
+        /* const CategoryID = req.query.CategoryID;
+        console.log(CategoryID) */
+        const CategoryID = req.body.CategoryID;
+        connection.query("SELECT Product.ProductID, Product.ProductName, Product.UnitPrice, Product.StockQty, Brand.BrandName  FROM product join Brand on Brand.BrandID= product.B_ID WHERE product.CatagoryID= ?",
+        [CategoryID],(err,result)=>{
+            if(err){
+                res.send({err:err});
+            }
+            else{
+                res.send(result);
+            }
+        });
+    }
+    );
 
-    
-  
-    
+/* *
+ * pace order
+ * add deta to invoice
+ * getting details from cart and invoice table
+ * then add data to order
+ * then delete all item from cart
+ * then update product stock
+ * */ 
+app.post("/order/placeorder",(req,res)=>{
+    console.log("place order");
+    const email = req.body.email;
+    const Address = req.body.Address;
+    const Phone = req.body.Phone;
+
+    connection.query("INSERT INTO invoice (UserID,addres,phone) VALUES ((SELECT UserID FROM USER WHERE email = ?),?,?)",
+    [email,Address,Phone]);
+    connection.query("SELECT *,invoiceID FROM cart join invoice WHERE cart.UserID=invoice.(SELECT UserID FROM USER WHERE email = ?)",
+    [email],(err,result)=>{
+        if(err){
+            res.send({err:err});
+        }
+        else{
+            console.log(result);
+            result.forEach(element => {
+                connection.query("INSERT INTO orders (ProductID,invoiceID,QTY) VALUES (?,?,?)",
+                [element.ProductID,element.invoiceID,element.QTY]);
+                connection.query("DELETE FROM cart WHERE UserID = (SELECT UserID FROM USER WHERE email = ?)",
+                [email]);
+                connection.query("UPDATE product SET StockQty = StockQty - ? WHERE ProductID = ?",
+                [element.QTY,element.ProductID]);
+            });
+        }
+    });
+}
+);
