@@ -7,6 +7,7 @@ const Head = () => {
         localStorage.removeItem('password');
         window.location.reload();
     }
+    const email = localStorage.getItem('email');
   return (
     <>
         <section className="head">
@@ -15,7 +16,8 @@ const Head = () => {
                     <i className='fa fa-phone'></i>
                     <label htmlFor=''>+94 777444875</label>
                     <i className='fa fa-envelope'></i>
-                    <label htmlFor=''>lahirurandima@gmail.com</label>
+                    <label htmlFor=''>Lahirurandima789@gmail.com</label>
+                    
                 </div>
                 <div className="right row RText">
                     <label>Theme FAQ'S</label>
@@ -24,7 +26,8 @@ const Head = () => {
                     <i className='fa fa-angle-down'></i>
                     <Link to='/admin'>
                         <i className='fa fa-user' onClick={logout}></i>
-                    </Link>                    
+                    </Link>
+                    <label htmlFor=''>{email}</label>                   
                 </div>
             </div>
         </section>

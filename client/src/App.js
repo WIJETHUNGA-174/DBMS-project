@@ -6,6 +6,7 @@ import LoginForm from './components/header/loginform.jsx';
 import signupForm from './components/header/signupForm.jsx';
 import Cart from './components/mainpage/cart'
 import confirmOrder from './components/mainpage/conOrder';
+import categoryitems from './components/mainpage/categoryItems';
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path='/' component={Pages}/>
           <Route exact path='/cart' component={Cart}/>
           <Route exact path='/confirmOrder' component={confirmOrder}/>
+          <Route exact path='/categoryitems' component={categoryitems}/>
                  
         </Switch>      
       </Router>     
